@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 80%;
+    font-size: 1rem;
+}
+
+.container {
+    margin-top: 2rem;
+}
+
+table th {
+    font-size: 1rem;
+    color: black;
+    font-weight: 400;
+    text-transform: uppercase;
+}
