@@ -35,8 +35,9 @@ export class DataTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 //  @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['bookName', 'isnNumber', 'isbnNumber'];    
+  displayedColumns: string[] = ['bookName', 'isnNumber', 'isbnNumber', 'author', '#'];    
   books: Book[] = [];
+  selectedBook: Book;
   dataSource = new MatTableDataSource<Book>();
   data = Object.assign(this.books);  
   constructor(private bookService: BookService, private dialog: MatDialog) { }
@@ -64,8 +65,23 @@ export class DataTableComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
+    dialogConfig.width = "100%";
     this.dialog.open(AddBookDialogComponent, dialogConfig);
+  }
+
+  confirmDelete(item) {
+    this.bookService.deleteBook(item.id)
+        .subscribe( res => {
+          const index = this.dataSource.data.indexOf(item);
+          this.dataSource.data.splice(index, 1);
+          this.dataSource.data = this.dataSource.data.filter(event => event.id != item.id);
+          this.dataSource = new MatTableDataSource(this.dataSource.data)          
+        }, err => console.log(err))
+  }
+
+  onSelect(book: any) {    
+    this.selectedBook = book;
+    console.log(this.selectedBook);
   }
 
 }

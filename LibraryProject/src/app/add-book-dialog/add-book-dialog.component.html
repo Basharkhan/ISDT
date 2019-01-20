@@ -9,11 +9,30 @@
   <mat-form-field>
     <input id="isnNumber" matInput formControlName="isnNumber" [(ngModel)]="book.isnNumber" placeholder="Enter ISN Number">
   </mat-form-field>
-
   
   <mat-form-field>
     <input id="isbnNumber" matInput formControlName="isbnNumber" [(ngModel)]="book.isbnNumber" placeholder="Enter ISBN Number">
   </mat-form-field>
+
+<!--Start of Author Form-->
+<button type="button" mat-raised-button color="primary" (click)="addAuthor()">Add More Author</button>
+<div formArrayName="author">
+  <div *ngFor="let a of author.controls; let pointIndex=index" [formGroupName]="pointIndex">
+      <mat-form-field>
+        <input id="authorName" matInput formControlName="authorName" [(ngModel)]="author.authorName" placeholder="Enter Author Name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input id="country" matInput formControlName="country" [(ngModel)]="author.country" placeholder="Country">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input id="age" type="number" matInput formControlName="age" [(ngModel)]="author.age" placeholder="Age">
+      </mat-form-field>           
+  </div>
+</div> 
+
+<!--End of Author Form-->
 
   <button type="submit" mat-raised-button color="primary" [disabled]="bookForm.invalid">Submit</button>  
 </form>

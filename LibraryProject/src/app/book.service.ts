@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class BookService {
   private _getAllBookUrl = "http://localhost:8080/getAllBooks";
   private _saveBookUrl = "http://localhost:8080/save";
-
+  private _deleteBookUrl = "http://localhost:8080/delete";
   constructor(private http: HttpClient) { }
 
   getAllBooks(): Observable<any> {
@@ -17,6 +17,10 @@ export class BookService {
 
   saveBook(book: Object): Observable<Object> {
     return this.http.post(`${this._saveBookUrl}`, book, {responseType: 'text'})    
+  }
+
+  deleteBook(id: string): Observable<any> {
+    return this.http.delete(`${this._deleteBookUrl}/${id}`, {responseType: 'text'})
   }
   
 }

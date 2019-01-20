@@ -23,7 +23,21 @@ public class BookController {
 
     @PostMapping("/save")
     public ResponseEntity<String> saveBook(@RequestBody Book book) {
-        bookRepo.save(book);
+        bookRepo.insert(book);
         return ResponseEntity.status(HttpStatus.OK).body("Book Saved");
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteBook(@PathVariable("id") String id) {
+        System.out.println("Delete mapping was called");
+        bookRepo.deleteBookById(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Book Deleted");
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<String> updateBookInfo(@RequestBody Book book) {
+        bookRepo.save(book);
+        return ResponseEntity.status(HttpStatus.OK).body("Book Updated");
+    }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 import { MatDialogRef } from '@angular/material';
@@ -19,14 +19,23 @@ export class AddBookDialogComponent implements OnInit {
 
   ngOnInit() {
     this.bookForm = this.formBuilder.group({
-      bookName: [this.book.bookName, [Validators.required]],
-      isnNumber: [this.book.isnNumber, [Validators.required]],
-      isbnNumber: [this.book.isbnNumber, [Validators.required]]
+      bookName: [this.book.bookName],
+      isnNumber: [this.book.isnNumber],
+      isbnNumber: [this.book.isbnNumber],
+      author: this.formBuilder.array([this.formBuilder.group({authorName: '', country: '', age: ''})])
     })
   }
 
+  get author() {
+    return this.bookForm.get('author') as FormArray;
+  }
+
+  addAuthor() {
+    this.author.push(this.formBuilder.group({authorName: '', country: '', age: ''}))
+  }
+
   onSubmit() {
-    console.log(this.bookForm.value);
+    console.log(this.bookForm.value.bookName);
     this.bookService.saveBook(this.bookForm.value)
         .subscribe( res=> {
           this.onClose();
