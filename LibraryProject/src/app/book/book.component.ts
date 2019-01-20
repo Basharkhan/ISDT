@@ -15,6 +15,7 @@ export class BookComponent implements OnInit {
   bookEntryForm: FormGroup;
   successMsg: any;
   errorMsg: any;
+  selectedBook: Book;
 
   get searchTerm(): string {
     return this._searchTerm;
@@ -75,5 +76,11 @@ export class BookComponent implements OnInit {
       }, err => console.log(err)
     )
   }
+
+  onSelect(selectedItem: any) {
+    this.selectedBook = selectedItem;
+    console.log(this.selectedBook);
+    console.log("Selected item Id: ", selectedItem.id);
+  }  
 
 }

@@ -3,5 +3,5 @@ export class Book {
     bookName: string;
     isnNumber: string;
     isbnNumber: string;
-    author: Array<any> = []
+    author: Array<any> = [];
 }
