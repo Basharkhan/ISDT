@@ -4,6 +4,8 @@ import { Book } from '../book';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { AddBookDialogComponent } from '../add-book-dialog/add-book-dialog.component';
 
 export interface PeriodicElement {
   bookName: string;
@@ -37,7 +39,7 @@ export class DataTableComponent implements OnInit {
   books: Book[] = [];
   dataSource = new MatTableDataSource<Book>();
   data = Object.assign(this.books);  
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private dialog: MatDialog) { }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -56,6 +58,14 @@ export class DataTableComponent implements OnInit {
           this.dataSource.data = data;
           console.log("Success!", this.books);
         }, err => console.log(err))
+  }
+
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(AddBookDialogComponent, dialogConfig);
   }
 
 }

@@ -1,0 +1,21 @@
+<div class="container">  
+  <div class="box">
+<form class="example-container" [formGroup]="bookForm" (ngSubmit)="bookForm.valid && onSubmit()" novalidate>    
+  <div class="heading"><h5 class="text-center">Add Book</h5></div>
+  <mat-form-field>
+    <input id="bookName" matInput formControlName="bookName" [(ngModel)]="book.bookName" placeholder="Enter Book Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input id="isnNumber" matInput formControlName="isnNumber" [(ngModel)]="book.isnNumber" placeholder="Enter ISN Number">
+  </mat-form-field>
+
+  
+  <mat-form-field>
+    <input id="isbnNumber" matInput formControlName="isbnNumber" [(ngModel)]="book.isbnNumber" placeholder="Enter ISBN Number">
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary" [disabled]="bookForm.invalid">Submit</button>  
+</form>
+  </div> <!--End of Box-->
+</div> <!--End of Container-->
