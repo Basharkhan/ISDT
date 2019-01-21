@@ -43,8 +43,13 @@ export class AddBookDialogComponent implements OnInit {
   }
 
   onClose() {
-    this.bookForm.reset();
+    this.bookForm.reset();    
     this.dialogRef.close();
   }
+
+  populateForm(book: Book) {
+    this.bookForm.setValue(book);
+  }
+
 
 }

@@ -40,7 +40,10 @@ export class DataTableComponent implements OnInit {
   selectedBook: Book;
   dataSource = new MatTableDataSource<Book>();
   data = Object.assign(this.books);  
-  constructor(private bookService: BookService, private dialog: MatDialog) { }
+  constructor(private bookService: BookService,
+              private dialog: MatDialog,
+//              private diaLogComponent: AddBookDialogComponent
+              ) { }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -61,11 +64,20 @@ export class DataTableComponent implements OnInit {
         }, err => console.log(err))
   }
 
+  // onEdit(book: Book) {    
+  //   this.diaLogComponent.populateForm(book);
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.disableClose = false;
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.width = '600px';
+  //   this.dialog.open(AddBookDialogComponent, dialogConfig);
+  // }
+
   onCreate() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "100%";
+    dialogConfig.width = '600px';
     this.dialog.open(AddBookDialogComponent, dialogConfig);
   }
 

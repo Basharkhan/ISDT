@@ -1,6 +1,6 @@
 <div class="container col-sm-10">
 <div class="mat-elevation-z8">
-    <button mat-raised-button color="basic" (click)="onCreate()"><mat-icon>add</mat-icon>Add Book</button>
+    <button mat-raised-button color="primary" (click)="onCreate()"><mat-icon>add</mat-icon>Add Book</button>
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..">
   </mat-form-field>  
@@ -55,7 +55,7 @@
       </div> <!--End of modal header-->
       <div *ngIf="selectedBook">
           <div>
-              <div style="width:90%; margin: auto">
+              <div>
                   <table class="table">
                   <thead>
                     <tr>            
