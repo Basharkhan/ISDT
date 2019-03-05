@@ -9,13 +9,19 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  books: Book[];
+  books: Book[] = [
+    {id: '1', bookName: 'Himu Rimande', isbnNumber: '1234', isnNumber: '3456', author: [
+      {name: 'Abul', country: 'India'}
+    ]}
+  ]
   filteredBooks: Book[];
   private _searchTerm: string;
   bookEntryForm: FormGroup;
   successMsg: any;
   errorMsg: any;
   selectedBook: Book;
+
+  
 
   get searchTerm(): string {
     return this._searchTerm;
@@ -33,14 +39,16 @@ export class BookComponent implements OnInit {
 
   constructor(private bookService: BookService, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {            
+  ngOnInit() {           
+    this.books; 
+    console.log(this.books);
     this.bookEntryForm = this.formBuilder.group({
       bookName: [''],
       isnNumber: [''],
       isbnNumber: [''],
       author: this.formBuilder.array([this.formBuilder.group({authorName: '', country: '', age: ''})])
     });
-    this.getBooks();
+    // this.getBooks();
   }    
 
   get author() {
@@ -66,16 +74,16 @@ export class BookComponent implements OnInit {
         )
   }
 
-  getBooks() {
-    this.bookService.getAllBooks()
-    .subscribe(
-      data => {
-        this.books = data,
-        this.filteredBooks = data,
-        console.log(this.books)
-      }, err => console.log(err)
-    )
-  }
+  // getBooks() {
+  //   this.bookService.getAllBooks()
+  //   .subscribe(
+  //     data => {
+  //       this.books = data,
+  //       this.filteredBooks = data,
+  //       console.log(this.books)
+  //     }, err => console.log(err)
+  //   )
+  // }
 
   onSelect(selectedItem: any) {
     this.selectedBook = selectedItem;

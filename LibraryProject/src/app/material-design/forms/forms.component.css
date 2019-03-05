@@ -1,0 +1,146 @@
+.degree-button {
+    text-transform: uppercase;
+    width: 20%;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.save-button {
+    text-transform: uppercase;
+    width: 20%;
+    font-size: 1.5rem;
+}
+
+.selected-leave-type{
+    background-color: #e5f6fd;
+}
+
+#leave-type-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#leave-type-table td, #leave-type-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#leave-type-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#leave-type-table tr:hover {background-color: #ddd;}
+
+#leave-type-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+fieldset {
+    font-family: sans-serif;
+    border: 1px dotted #9D9D9D;
+    border-radius: 0px;
+    padding: 15px;
+  }
+  
+  fieldset legend {
+    background: #36AADD;
+    color: #fff;
+    padding: 5px 10px ;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0px;
+    box-shadow: 0 0 0 0px #9D9D9D;
+    margin-left: 20px;
+  }
+
+  .degree {    
+    padding: 10px;
+    margin: 5px;
+    color: gray;    
+  }
+
+  .example-container > *{
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  mat-list mat-list-item {
+      border: 1px solid green;
+  }
+
+  .formSerialField {
+      width: 50%;
+  }
+
+  /* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+/* Auto complete form */
+.example-form {
+    min-width: 150px;
+
+    width: 100%;
+  }
+  
+.example-full-width {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+
+.heading {
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #039be5;
+    color: white;
+
+}
+  
+#leave-type-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#leave-type-table td, #leave-type-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#leave-type-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#leave-type-table tr:hover {background-color: #ddd;}
+
+#leave-type-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: gray;
+    color: white;
+}  
+
+
+.success {
+    background-color: #ddffdd;    
+}    
+
+.danger {
+    background-color: #ffdddd;
+}

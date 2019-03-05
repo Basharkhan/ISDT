@@ -1,0 +1,7 @@
+<app-child (messageEvent)="receiveMessage($event)"></app-child>
+<mat-list role="list" *ngFor="let hello of hello">
+  <mat-list-item role="listitem">{{hello.id}}</mat-list-item>
+  <mat-list-item role="listitem">{{hello.name}}</mat-list-item>  
+</mat-list>
+
+

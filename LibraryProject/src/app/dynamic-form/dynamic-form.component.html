@@ -1,0 +1,43 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"                    
+                    >
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="academicProgram">
+    <th mat-header-cell *matHeaderCellDef> Academic Program </th>
+    <td mat-cell *matCellDef="let element"> {{element.academicProgram}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="programLimit">
+    <th mat-header-cell *matHeaderCellDef> Program Limit </th>
+    <td mat-cell *matCellDef="let element"> <input matInput placeholder="Enter Limit"> </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="currentCount">
+    <th mat-header-cell *matHeaderCellDef> Current Count </th>
+    <td mat-cell *matCellDef="let element"> {{element.currentCount}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)" (click)="rowClicked(row)">
+  </tr>
+</table>

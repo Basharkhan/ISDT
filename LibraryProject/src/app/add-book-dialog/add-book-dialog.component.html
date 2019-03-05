@@ -15,7 +15,7 @@
   </mat-form-field>
 
 <!--Start of Author Form-->
-<button type="button" mat-raised-button color="primary" (click)="addAuthor()">Add More Author</button>
+<button class="author-button" type="button" mat-raised-button color="basic" (click)="addAuthor()">Add More Author</button>
 <div formArrayName="author">
   <div *ngFor="let a of author.controls; let pointIndex=index" [formGroupName]="pointIndex">
       <mat-form-field>

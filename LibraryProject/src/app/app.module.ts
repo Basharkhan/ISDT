@@ -20,6 +20,15 @@ import {AddBookDialogComponent} from './add-book-dialog/add-book-dialog.componen
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ChildComponent } from './sharing/child/child.component';
+import { ParentComponent } from './sharing/parent/parent.component';
+import { RootComponent } from './sharing/root/root.component';
+import { FormsComponent } from './material-design/forms/forms.component';
+import { MatToolbarModule, MatListModule, MatOptionModule, MatSelectModule, MatGridListModule, MatRadioModule, MatNativeDateModule, MatCheckboxModule, MatCardModule, MatTabsModule } from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +36,12 @@ import {MatIconModule} from '@angular/material/icon';
     BookComponent,
     DataTableComponent,
     AddBookDialogComponent,
-    
+    ChildComponent,
+    ParentComponent,
+    RootComponent,
+    FormsComponent,
+    DynamicFormComponent,
+    ReactiveFormComponent,    
   ],
   imports: [
     BrowserModule,
@@ -43,7 +57,21 @@ import {MatIconModule} from '@angular/material/icon';
     MatPaginatorModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatListModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule,
+    FormsModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent],

@@ -76,8 +76,9 @@ export class DataTableComponent implements OnInit {
   onCreate() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '600px';
+    dialogConfig.autoFocus = true;   
+    dialogConfig.maxHeight = '500px';
+    dialogConfig.width = '400px';
     this.dialog.open(AddBookDialogComponent, dialogConfig);
   }
 
