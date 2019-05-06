@@ -12,7 +12,7 @@ import { MatDialogRef } from '@angular/material';
 export class AddBookDialogComponent implements OnInit {
   bookForm: FormGroup;
   book: Book = new Book();
-  constructor(private formBuilder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder,
               private bookService: BookService,
               public dialogRef: MatDialogRef<AddBookDialogComponent>
               ) { }
@@ -43,7 +43,7 @@ export class AddBookDialogComponent implements OnInit {
   }
 
   onClose() {
-    this.bookForm.reset();    
+    this.bookForm.reset();
     this.dialogRef.close();
   }
 
@@ -51,5 +51,5 @@ export class AddBookDialogComponent implements OnInit {
     this.bookForm.setValue(book);
   }
 
-  
+
 }

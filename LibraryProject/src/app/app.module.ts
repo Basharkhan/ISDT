@@ -9,7 +9,7 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module'
 
-//-----------Angular Material--------------------
+// -----------Angular Material--------------------
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
@@ -25,10 +25,20 @@ import { ChildComponent } from './sharing/child/child.component';
 import { ParentComponent } from './sharing/parent/parent.component';
 import { RootComponent } from './sharing/root/root.component';
 import { FormsComponent } from './material-design/forms/forms.component';
-import { MatToolbarModule, MatListModule, MatOptionModule, MatSelectModule, MatGridListModule, MatRadioModule, MatNativeDateModule, MatCheckboxModule, MatCardModule, MatTabsModule } from '@angular/material';
+import { MatToolbarModule,
+          MatListModule,
+          MatOptionModule,
+          MatSelectModule,
+          MatGridListModule,
+          MatRadioModule,
+          MatNativeDateModule,
+          MatCheckboxModule,
+          MatCardModule,
+          MatTabsModule } from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +51,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     RootComponent,
     FormsComponent,
     DynamicFormComponent,
-    ReactiveFormComponent,    
+    ReactiveFormComponent,
+    MatConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +86,6 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
   ],
   providers: [BookService],
   bootstrap: [AppComponent],
-  entryComponents: [AddBookDialogComponent]
+  entryComponents: [AddBookDialogComponent, MatConfirmDialogComponent]
 })
 export class AppModule { }

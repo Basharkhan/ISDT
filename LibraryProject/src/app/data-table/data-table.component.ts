@@ -1,3 +1,4 @@
+import { DialogService } from './../shared/dialog.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookService } from '../book.service';
 import { Book } from '../book';
@@ -42,7 +43,7 @@ export class DataTableComponent implements OnInit {
   data = Object.assign(this.books);  
   constructor(private bookService: BookService,
               private dialog: MatDialog,
-//              private diaLogComponent: AddBookDialogComponent
+              private dialogService: DialogService
               ) { }
 
   applyFilter(filterValue: string) {
@@ -83,13 +84,31 @@ export class DataTableComponent implements OnInit {
   }
 
   confirmDelete(item) {
-    this.bookService.deleteBook(item.id)
-        .subscribe( res => {
-          const index = this.dataSource.data.indexOf(item);
-          this.dataSource.data.splice(index, 1);
-          this.dataSource.data = this.dataSource.data.filter(event => event.id != item.id);
-          this.dataSource = new MatTableDataSource(this.dataSource.data)          
-        }, err => console.log(err))
+    // this.bookService.deleteBook(item.id)
+    //     .subscribe( res => {
+    //       const index = this.dataSource.data.indexOf(item);
+    //       this.dataSource.data.splice(index, 1);
+    //       this.dataSource.data = this.dataSource.data.filter(event => event.id != item.id);
+    //       this.dataSource = new MatTableDataSource(this.dataSource.data)          
+    //     }, err => console.log(err))
+
+
+    this.dialogService.openConfirmDialog('Are you sure you want to delete?')
+        .afterClosed().subscribe(
+          res => {
+            if(res) {
+              this.bookService.deleteBook(item.id)
+              .subscribe( res => {
+                const index = this.dataSource.data.indexOf(item);
+                this.dataSource.data.splice(index, 1);
+                this.dataSource.data = this.dataSource.data.filter(event => event.id != item.id);
+                this.dataSource = new MatTableDataSource(this.dataSource.data)          
+              }, err => console.log(err))      
+            }
+          }, error => {
+            console.log(error);
+          }
+        );
   }
 
   onSelect(book: any) {    
